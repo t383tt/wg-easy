@@ -214,7 +214,7 @@ Endpoint = ${WG_HOST}:${WG_PORT}`;
   async getClientQRCodeSVG({ clientId }) {
     const config = await this.getClientConfiguration({ clientId });
     return QRCode.toString(config, {
-      type: 'svg',
+      type: 'png',
       width: 512,
     });
   }
