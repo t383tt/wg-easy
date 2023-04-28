@@ -89,10 +89,10 @@ module.exports = class Server {
       .get('/api/wireguard/client', Util.promisify(async req => {
         return WireGuard.getClients();
       }))
-      .get('/api/wireguard/client/:clientId/qrcode.svg', Util.promisify(async (req, res) => {
+      .get('/api/wireguard/client/:clientId/qrcode.png', Util.promisify(async (req, res) => {
         const { clientId } = req.params;
         const svg = await WireGuard.getClientQRCodeSVG({ clientId });
-        res.header('Content-Type', 'image/svg+xml');
+        res.header('Content-Type', 'image/png');
         res.send(svg);
       }))
       .get('/api/wireguard/client/:clientId/configuration', Util.promisify(async (req, res) => {
